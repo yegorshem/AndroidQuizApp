@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AndroidQuizApp</string>
+    <string name="bttn_true">True</string>
+    <string name="bttn_false">False</string>
+    <string name="question_textview">Error</string>
+    <string name="main_textview">Take this awesome quiz to see if you are clever.</string>
+    <string name="textView1">You answered:</string>
+    <string name="textView2">0</string>
+    <string name="textView3">--------------</string>
+    <string name="textView4">5</string>
+    <string name="textView5">questions correctly.</string>
+</resources>

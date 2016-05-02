@@ -8,7 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/**
+ * This is the Question controller
+ *
+ * @author Yegor Shemereko
+ */
 public class QuestionActivity extends AppCompatActivity {
 
     public final static String AMOUNT_CORRECT = "yegorshem.greenrivertech.net.AndroidQuizApp.AMOUNT_CORRECT";
@@ -40,14 +44,29 @@ public class QuestionActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Pops up the toast notifying if correct or not.
+     *
+     * @param view
+     */
     public void onButtonFalse(View view) {
         toaster(false);
     }
 
+    /**
+     * Pops up the toast notifying if correct or not.
+     *
+     * @param view
+     */
     public void onButtonTrue(View view) {
         toaster(true);
     }
 
+    /**
+     * Compares the user input with actual answer and returns a toast
+     *
+     * @param answer - the user input
+     */
     private void toaster(boolean answer) {
         String toast;
 
@@ -60,10 +79,18 @@ public class QuestionActivity extends AppCompatActivity {
         Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Changes the current displayed question to the next question
+     */
     private void updateQuestion() {
         question.setText(quiz.questions.get(quiz.getQuestionCount()).getStatement());
     }
 
+    /**
+     * Moves to next screen
+     *
+     * @param view
+     */
     public void nextQuestion(View view) {
         if (!quiz.nextQuestion()) {
             nextScreen();
@@ -72,6 +99,11 @@ public class QuestionActivity extends AppCompatActivity {
         updateQuestion();
     }
 
+    /**
+     * Moves to previous question
+     *
+     * @param view
+     */
     public void prevQuestion(View view) {
         if (!quiz.prevQuestion()) {
             nextScreen();
@@ -80,6 +112,9 @@ public class QuestionActivity extends AppCompatActivity {
         updateQuestion();
     }
 
+    /**
+     * Goes to the final screen if all questions are answered
+     */
     private void nextScreen() {
         Intent intent = new Intent(this, FinalScreen.class);
         String sentNumber = "" + quiz.getAmountCorrect();

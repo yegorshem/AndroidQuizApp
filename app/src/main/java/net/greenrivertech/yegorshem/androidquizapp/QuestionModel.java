@@ -7,7 +7,9 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 /**
- * Created by Yegor Shemereko on 4/22/2016.
+ * Represents a collection of questions
+ *
+ * @author Yegor Shemereko
  */
 public class QuestionModel extends Fragment {
 
@@ -16,6 +18,9 @@ public class QuestionModel extends Fragment {
     private int amountCorrect;
     public ArrayList<Question> questions;
 
+    /**
+     * QuestionModel constructor, instantiates a few questions
+     */
     public QuestionModel() {
         amountDone = 0;
         questionCount = 0;
@@ -34,15 +39,25 @@ public class QuestionModel extends Fragment {
                 ("Question Five:\n All these questions were actually questions.", false));
     }
 
-
+    /**
+     * Compares answer with user input, if correct updates question count
+     *
+     * @param answer
+     * @return
+     */
     public boolean checkAnswer(boolean answer) {
         questions.get(questionCount).setDone(true);
-        if( questions.get(questionCount).isAnswer() == answer)
+        if (questions.get(questionCount).isAnswer() == answer)
             amountCorrect++;
 
         return questions.get(questionCount).isAnswer() == answer;
     }
 
+    /**
+     * Moves to the next question if it exists
+     *
+     * @return False if there is no next question
+     */
     public boolean nextQuestion() {
         if (questions.get(questionCount).isDone())
             amountDone++;
@@ -62,13 +77,18 @@ public class QuestionModel extends Fragment {
         return false;
     }
 
+    /**
+     * Moves to previous question if it exists
+     *
+     * @return False if there is no previous question
+     */
     public boolean prevQuestion() {
         if (questions.get(questionCount).isDone())
             amountDone++;
 
         if (!(amountDone == questions.size())) {
             do {
-                if (questionCount ==0 )
+                if (questionCount == 0)
                     questionCount = questions.size() - 1;
                 else
                     questionCount--;
@@ -81,19 +101,32 @@ public class QuestionModel extends Fragment {
         return false;
     }
 
+    /**
+     * QuestionCount getter
+     *
+     * @return the current question user is at
+     */
     public int getQuestionCount() {
         return questionCount;
     }
 
+    /**
+     * AmountCorrect getter
+     *
+     * @return the amount of question user got correct
+     */
     public int getAmountCorrect() {
         return amountCorrect;
     }
 
+    /**
+     * Method needed for saving the instance when onPause
+     *
+     * @param savedInstanceState
+     */
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         setRetainInstance(true);
     }

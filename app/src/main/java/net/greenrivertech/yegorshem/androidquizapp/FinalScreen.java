@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * This class prints out the final score of the quiz
+ *
+ * @author Yegor Shemereko
+ */
 public class FinalScreen extends AppCompatActivity {
 
     TextView amountCorrect;

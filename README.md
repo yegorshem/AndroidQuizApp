@@ -42,6 +42,12 @@ A quiz of 5 questions that lets you answer the question and move on, it will tel
 
 
 **The most challenging parts of this app:**
-1. Separating the model from the views and making this app portable.
-2. Researching how to save instance when the program gets paused (extends Fragment).
-3. Creating logic that allows you to cycle through the question, forward and backward, and not showing questions that have been answerd already.
+
+
+  1. Separating the model from the views and making this app portable.
+
+
+  2. Researching how to save instance when the program gets paused (extends Fragment).
+
+
+  3. Creating logic that allows you to cycle through the question, forward and backward, and not showing questions that have been answerd already.
